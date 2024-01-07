@@ -1,0 +1,71 @@
+
+ Higher Level Diagram:
+
+
++--------------------------------------+
+|           TravelPackage              |
+|--------------------------------------|
+| - name: String                       |
+| - passengerCapacity: int             |
+| - destinations: List<Destination>    |
+| - passengers: List<Passenger>        |
+|--------------------------------------|
+| + addDestination(destination: Destination): void|
+| + addPassenger(passenger: Passenger): boolean|
+| + printItinerary(): void             |
+| + printPassengerList(): void         |
+| + printPassengerDetails(passenger: Passenger): void|
+| + printAvailableActivities(): void  |
++--------------------------------------+
+                  |
+                  |
+                  V
++--------------------------------------+
+|           Destination                 |
+|--------------------------------------|
+| - name: String                       |
+| - activities: List<Activity>          |
+|--------------------------------------|
+| + addActivity(activity: Activity): void|
++--------------------------------------+
+                  |
+                  |
+                  V
++--------------------------------------+
+|           Activity                    |
+|--------------------------------------|
+| - name: String                       |
+| - description: String                |
+| - cost: double                       |
+| - capacity: int                      |
+| - destination: Destination           |
+| - signedUpPassengers: List<Passenger>|
+|--------------------------------------|
+| + signUpPassenger(passenger: Passenger): boolean|
++--------------------------------------+
+                  |
+                  |
+                  V
++--------------------------------------+
+|           Passenger                   |
+|--------------------------------------|
+| - name: String                       |
+| - passengerNumber: int               |
+| - balance: double                    |
+| - type: PassengerType                |
+| - signedUpActivities: List<Activity> |
+|--------------------------------------|
+| + signUpForActivity(activity: Activity): boolean|
++--------------------------------------+
+                  |
+                  |
+                  V
++--------------------------------------+
+|         PassengerType                 |
+|--------------------------------------|
+| STANDARD                             |
+| GOLD                                 |
+| PREMIUM                              |
+|--------------------------------------|
+| + canSignUpForActivity(passenger: Passenger, activity: Activity): boolean|
++--------------------------------------+
